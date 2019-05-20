@@ -18,7 +18,7 @@
 		<link>
 			<name>libspecs/SeleniumLibrary.py</name>
 			<type>1</type>
-			<location>C:/Users/A751049/Desktop/Robot Framework/Tools/robotframework-seleniumlibrary-3.3.1/src/SeleniumLibrary/__init__.py</location>
+			<location>C:/Program Files (x86)/Python/Lib/site-packages/SeleniumLibrary/__init__.py</location>
 		</link>
 	</linkedResources>
 </projectDescription>

@@ -1,53 +1,280 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.1 (Python 3.7.3 on win32)" generated="20190429 14:38:02.778" rpa="false">
-<suite id="s1" name="myFirstTestSuite" source="C:\Users\A751049\Desktop\Robot Framework\EclipseWorkSpace\MyFirstRobotProject\Test\myFirstTestSuite.robot">
+<robot generator="Robot 3.1.1 (Python 3.7.3 on win32)" generated="20190520 14:58:41.634" rpa="false">
+<suite id="s1" name="MyFirstRobotProject" source="C:\Users\A751049\git\RobotLearningProject\MyFirstRobotProject">
+<suite id="s1-s1" name="Test" source="C:\Users\A751049\git\RobotLearningProject\MyFirstRobotProject\Test">
+<suite id="s1-s1-s1" name="myFirstTestSuite" source="C:\Users\A751049\git\RobotLearningProject\MyFirstRobotProject\Test\myFirstTestSuite.robot">
 <kw name="Log" library="BuiltIn" type="setup">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>I'm in the Suite Setup</arg>
 </arguments>
-<msg timestamp="20190429 14:38:03.012" level="INFO">I'm in the Suite Setup</msg>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012"></status>
+<msg timestamp="20190520 14:58:41.980" level="INFO">I'm in the Suite Setup</msg>
+<status status="PASS" starttime="20190520 14:58:41.980" endtime="20190520 14:58:41.980"></status>
 </kw>
-<test id="s1-t1" name="MyFirstTestCase">
+<test id="s1-s1-s1-t1" name="VariablesTest">
 <kw name="Log" library="BuiltIn" type="setup">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>I'm in the Test Setup</arg>
 </arguments>
-<msg timestamp="20190429 14:38:03.012" level="INFO">I'm in the Test Setup</msg>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012"></status>
+<msg timestamp="20190520 14:58:41.980" level="INFO">I'm in the Test Setup</msg>
+<status status="PASS" starttime="20190520 14:58:41.980" endtime="20190520 14:58:41.980"></status>
+</kw>
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the given ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${browser}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:41.980" level="INFO">Opening browser 'chrome' to base url 'https://opensource-demo.orangehrmlive.com/'.</msg>
+<status status="PASS" starttime="20190520 14:58:41.980" endtime="20190520 14:58:47.868"></status>
+</kw>
+<kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
+<doc>Sets the implicit wait value used by Selenium.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<status status="PASS" starttime="20190520 14:58:47.868" endtime="20190520 14:58:47.871"></status>
+</kw>
+<kw name="LoginKW">
+<arguments>
+<arg>${userLocator}</arg>
+<arg>${pwdLocator}</arg>
+<arg>${logBtnLocator}</arg>
+<arg>&amp;{Credentials}</arg>
+</arguments>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${usernameLocator}</arg>
+<arg>&amp;{CredentialsDictionary}[username]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:47.873" level="INFO">Typing text 'Admin' into text field 'id=txtUsername'.</msg>
+<status status="PASS" starttime="20190520 14:58:47.872" endtime="20190520 14:58:47.946"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into text field identified by ``locator``.</doc>
+<arguments>
+<arg>${passwordLocator}</arg>
+<arg>&amp;{CredentialsDictionary}[password]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:47.947" level="INFO">Typing password into text field 'id=txtPassword'.</msg>
+<status status="PASS" starttime="20190520 14:58:47.946" endtime="20190520 14:58:48.002"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>${loginBtnLocator}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:48.002" level="INFO">Clicking button 'id=btnLogin'.</msg>
+<status status="PASS" starttime="20190520 14:58:48.002" endtime="20190520 14:58:49.420"></status>
+</kw>
+<status status="PASS" starttime="20190520 14:58:47.871" endtime="20190520 14:58:49.421"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=menu_admin_viewAdminModule</arg>
+</arguments>
+<msg timestamp="20190520 14:58:49.421" level="INFO">Clicking element 'id=menu_admin_viewAdminModule'.</msg>
+<status status="PASS" starttime="20190520 14:58:49.421" endtime="20190520 14:58:51.440"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=menu_admin_Job</arg>
+</arguments>
+<msg timestamp="20190520 14:58:51.441" level="INFO">Clicking element 'id=menu_admin_Job'.</msg>
+<status status="PASS" starttime="20190520 14:58:51.440" endtime="20190520 14:58:51.485"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click element identified by ``locator``.</doc>
+<arguments>
+<arg>id=menu_admin_workShift</arg>
+</arguments>
+<msg timestamp="20190520 14:58:51.486" level="INFO">Clicking element 'id=menu_admin_workShift'.</msg>
+<status status="PASS" starttime="20190520 14:58:51.485" endtime="20190520 14:58:52.029"></status>
+</kw>
+<kw name="GetDataKW">
+<assign>
+<var>&amp;{returnValues}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${tableLocator}/tbody[1]/tr[1]/td[5]</arg>
+</arguments>
+<assign>
+<var>${firstValueString}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.066" level="INFO">${firstValueString} = 9.00</msg>
+<status status="PASS" starttime="20190520 14:58:52.030" endtime="20190520 14:58:52.066"></status>
 </kw>
 <kw name="Log" library="BuiltIn">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
-<arg>Hello World..</arg>
+<arg>${firstValueString}</arg>
 </arguments>
-<msg timestamp="20190429 14:38:03.012" level="INFO">Hello World..</msg>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012"></status>
+<msg timestamp="20190520 14:58:52.066" level="INFO">9.00</msg>
+<status status="PASS" starttime="20190520 14:58:52.066" endtime="20190520 14:58:52.067"></status>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<doc>Converts the given item to a floating point number.</doc>
+<arguments>
+<arg>${firstValueString}</arg>
+</arguments>
+<assign>
+<var>${firstValue}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.067" level="INFO">${firstValue} = 9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.067" endtime="20190520 14:58:52.067"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${firstValue}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.068" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.068" endtime="20190520 14:58:52.068"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${tableLocator}/tbody[1]/tr[2]/td[5]</arg>
+</arguments>
+<assign>
+<var>${secondValueString}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.091" level="INFO">${secondValueString} = 9.00</msg>
+<status status="PASS" starttime="20190520 14:58:52.068" endtime="20190520 14:58:52.091"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${secondValueString}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.092" level="INFO">9.00</msg>
+<status status="PASS" starttime="20190520 14:58:52.091" endtime="20190520 14:58:52.092"></status>
+</kw>
+<kw name="Convert To Number" library="BuiltIn">
+<doc>Converts the given item to a floating point number.</doc>
+<arguments>
+<arg>${secondValueString}</arg>
+</arguments>
+<assign>
+<var>${secondValue}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.093" level="INFO">${secondValue} = 9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.092" endtime="20190520 14:58:52.093"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${secondValue}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.093" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.093" endtime="20190520 14:58:52.093"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<arguments>
+<arg>firstKey=${firstValue}</arg>
+<arg>secondKey=${secondValue}</arg>
+</arguments>
+<assign>
+<var>&amp;{Values}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.094" level="INFO">&amp;{Values} = { firstKey=9.0 | secondKey=9.0 }</msg>
+<status status="PASS" starttime="20190520 14:58:52.093" endtime="20190520 14:58:52.094"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&amp;{Values}[firstKey]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.095" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.094" endtime="20190520 14:58:52.095"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&amp;{Values}[secondKey]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.096" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.095" endtime="20190520 14:58:52.096"></status>
+</kw>
+<msg timestamp="20190520 14:58:52.096" level="INFO">&amp;{returnValues} = { firstKey=9.0 | secondKey=9.0 }</msg>
+<status status="PASS" starttime="20190520 14:58:52.030" endtime="20190520 14:58:52.096"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&amp;{returnValues}[firstKey]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.097" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.096" endtime="20190520 14:58:52.097"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>&amp;{returnValues}[secondKey]</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.097" level="INFO">9.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.097" endtime="20190520 14:58:52.097"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>&amp;{returnValues}[firstKey]+&amp;{returnValues}[secondKey]</arg>
+</arguments>
+<assign>
+<var>${somme}</var>
+</assign>
+<msg timestamp="20190520 14:58:52.098" level="INFO">${somme} = 18.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.098" endtime="20190520 14:58:52.098"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${somme}</arg>
+</arguments>
+<msg timestamp="20190520 14:58:52.099" level="INFO">18.0</msg>
+<status status="PASS" starttime="20190520 14:58:52.098" endtime="20190520 14:58:52.099"></status>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are equal.</doc>
+<arguments>
+<arg>${somme}</arg>
+<arg>&amp;{returnValues}[firstKey]</arg>
+</arguments>
+<status status="PASS" starttime="20190520 14:58:52.099" endtime="20190520 14:58:52.099"></status>
 </kw>
 <kw name="Log" library="BuiltIn" type="teardown">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>I'm in the Test Setup</arg>
 </arguments>
-<msg timestamp="20190429 14:38:03.012" level="INFO">I'm in the Test Setup</msg>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012"></status>
+<msg timestamp="20190520 14:58:52.100" level="INFO">I'm in the Test Setup</msg>
+<status status="PASS" starttime="20190520 14:58:52.100" endtime="20190520 14:58:52.100"></status>
 </kw>
 <tags>
-<tag>smoke</tag>
+<tag>sanity</tag>
 </tags>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012" critical="yes"></status>
+<status status="PASS" starttime="20190520 14:58:41.980" endtime="20190520 14:58:52.100" critical="yes"></status>
 </test>
 <kw name="Log" library="BuiltIn" type="teardown">
 <doc>Logs the given message with the given level.</doc>
 <arguments>
 <arg>I'm in the Suite Teardown</arg>
 </arguments>
-<msg timestamp="20190429 14:38:03.012" level="INFO">I'm in the Suite Teardown</msg>
-<status status="PASS" starttime="20190429 14:38:03.012" endtime="20190429 14:38:03.012"></status>
+<msg timestamp="20190520 14:58:52.101" level="INFO">I'm in the Suite Teardown</msg>
+<status status="PASS" starttime="20190520 14:58:52.101" endtime="20190520 14:58:52.101"></status>
 </kw>
-<status status="PASS" starttime="20190429 14:38:02.778" endtime="20190429 14:38:03.012"></status>
+<status status="PASS" starttime="20190520 14:58:41.716" endtime="20190520 14:58:52.101"></status>
+</suite>
+<status status="PASS" starttime="20190520 14:58:41.713" endtime="20190520 14:58:52.103"></status>
+</suite>
+<status status="PASS" starttime="20190520 14:58:41.688" endtime="20190520 14:58:52.105"></status>
 </suite>
 <statistics>
 <total>
@@ -55,10 +282,12 @@
 <stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0">smoke</stat>
+<stat pass="1" fail="0">sanity</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="myFirstTestSuite">myFirstTestSuite</stat>
+<stat pass="1" fail="0" id="s1" name="MyFirstRobotProject">MyFirstRobotProject</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Test">MyFirstRobotProject.Test</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="myFirstTestSuite">MyFirstRobotProject.Test.myFirstTestSuite</stat>
 </suite>
 </statistics>
 <errors>

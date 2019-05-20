@@ -12,12 +12,14 @@ ${browser}    chrome
 ${userLocator}      id=txtUsername
 ${pwdLocator}       id=txtPassword
 ${logBtnLocator}    id=btnLogin
+${tableLocator}     //table[@id='resultTable']
 
-*** Test Cases ***
+
+***Comment***  
 MyFirstTestCase
     [Tags]    smoke
     Log    Hello World..
-    
+  
 MySecondTestCase
     Log    Second Test..
     Set Tags    regression1   
@@ -28,22 +30,50 @@ MyThirdTestCase
 MyFourthTestCase
     Log    Fourth Test..
     
-#MyFirstSeleniumTest
-#    Open Browser     https://www.google.com    chrome
-#    Input Text       name=q                    Youssef ait mbarek
-#    Press Keys       none                      ENTER
-#LoginTest
-#    Open Browser        ${url}            ${browser}
-#    Set Browser Implicit Wait    5
-#    LoginKW    ${userLocator}    ${pwdLocator}    ${logBtnLocator}    &{Credentials}
-#    Click Element    id=welcome
-#    Click Element    link=Logout
+MyFirstSeleniumTest
+    Open Browser     https://www.google.com    chrome
+    Input Text       name=q                    Youssef ait mbarek
+    Press Keys       none                      ENTER
+LoginTest
+    Open Browser        ${url}            ${browser}
+    Set Browser Implicit Wait    5
+    LoginKW    ${userLocator}    ${pwdLocator}    ${logBtnLocator}    &{Credentials}
+    Click Element    id=welcome
+    Click Element    link=Logout
+    
+*** Test Cases ***
+VariablesTest
+    Open Browser    ${url}    ${browser}
+    Set Browser Implicit Wait    5
+    LoginKW    ${userLocator}    ${pwdLocator}    ${logBtnLocator}    &{Credentials}
+    Click Element    id=menu_admin_viewAdminModule
+    Click Element    id=menu_admin_Job
+    Click Element    id=menu_admin_workShift
+    &{returnValues}=  GetDataKW
+    
+    Log    &{returnValues}[firstKey]
+    Log    &{returnValues}[secondKey]
+    ${somme}=    Evaluate    &{returnValues}[firstKey]+&{returnValues}[secondKey]
+    Log     ${somme}
+    Should Not Be Equal    ${somme}    &{returnValues}[firstKey]
+    
 *** Keywords ***
 LoginKW
     [Arguments]    ${usernameLocator}    ${passwordLocator}    ${loginBtnLocator}    &{CredentialsDictionary}
     Input Text          ${usernameLocator}    &{CredentialsDictionary}[username]
     Input Password      ${passwordLocator}    &{CredentialsDictionary}[password]
     Click button        ${loginBtnLocator}
-    
-
+GetDataKW
+    ${firstValueString}=     Get Text   ${tableLocator}/tbody[1]/tr[1]/td[5]
+    Log   ${firstValueString} 
+    ${firstValue}=     Convert To Number    ${firstValueString}    
+    Log     ${firstValue}
+    ${secondValueString}=    Get Text   ${tableLocator}/tbody[1]/tr[2]/td[5]
+    Log    ${secondValueString}
+    ${secondValue}=    Convert To Number      ${secondValueString}  
+    Log    ${secondValue}
+    &{Values}    Create Dictionary    firstKey=${firstValue}    secondKey=${secondValue}
+    Log    &{Values}[firstKey]
+    Log    &{Values}[secondKey]
+    [Return]    &{Values}
     
