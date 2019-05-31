@@ -76,4 +76,21 @@ GetDataKW
     Log    &{Values}[firstKey]
     Log    &{Values}[secondKey]
     [Return]    &{Values}
+ListeComptageGetValuesForModificationCalcul
+    [Arguments]    ${tableLocator}    ${row}    @{listColumns}
+    ${listColumnsLength}    Get length    @{listColumns}
+    @{listValtForCalcul}=    Create List
+    :FOR    ${var}    IN RANGE    0    ${listColumnsLength}
+    \    ${valueString}=    WebTableGetCellInputValue    ${tableLocator}    ${row}    @{listColumns}[${var}]
+    \    ${value}    Convert To Number    ${valueString}
+    \    Append To List    @{listValtForCalcul}    ${value}
+    [Teardown]
+    [Return]    @{listValtForCalcul}
+ListeComptageVerifierCalculTotalModifie
+    [Arguments]    @{totalModifie}    @{totalCalcule}    @{valInitial}    @{valModifie}
+    ${totalModifieLenght}=    Get Length    @{totalModifie}
+    :FOR    ${var}    IN RANGE    0    ${totalModifieLenght}
+    \    ${valTotalApresModif}    Evaluate    @{totalCalcule}[${var}]-@{valInitial}[${var}]+@{valModifie}[${var}]
+    \    log    ${valTotalApresModif}
+    \    Should Be Equal    ${valTotalApresModif}    @{totalModifie}[${var}]
     
